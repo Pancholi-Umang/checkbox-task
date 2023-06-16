@@ -100,17 +100,20 @@ const App = () => {
   const getCheckedValues = () => {
     const checkedValues = [];
     checkboxState.forEach((row, rowIndex) => {
+      const makeRow = [];
       row.forEach((checked, childIndex) => {
         if (checked) {
-          checkedValues.push(arr[rowIndex][childIndex]);
+          makeRow.push(arr[rowIndex][childIndex]);
         }
       });
+      console.log(makeRow)
+      checkedValues.push(makeRow)
     });
     setRetriveValuesOfItems(checkedValues)
   };
 
   
-
+console.log(RetriveValuesOfItems)
   return (
     <div>
       {checkboxState.map((row, rowIndex) => (
@@ -139,7 +142,7 @@ const App = () => {
       <h3>New Values:</h3>
       {
         RetriveValuesOfItems?.map((val,index)=>(
-          <span key={index}><span key={val}>{val}</span>&nbsp;</span>
+          <span key={index}><span key={val}>{` ${val}`}</span><br/></span>
         ))
       }
 
